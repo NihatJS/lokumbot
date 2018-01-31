@@ -23,7 +23,7 @@ client.on('message', msg => {
      msg.channel.send({embed: randembed});
   }
   if (msg.content.startsWith(">say")) {
-   if (!msg.member.hasPermission("MANAGE_ROLES")) message.reply(" Yetkin YOK!");
+   if (!msg.member.hasPermission("MANAGE_ROLES")) msg.reply("You dont have permission! Needed permission: `MANAGE_ROLES`");
      let args = msg.content.split(" ").splice(1);
      let say = args.join(" ");
      msg.channel.send(msg.author.username + ": " + say);
