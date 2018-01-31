@@ -6,7 +6,14 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  var args = msg.content.split(" ").slice(1);
+
+  
   if (msg.content === '>ping') {
+    msg.reply('Pong!');
+  }
+  
+  if (msg.content.startsWith === '>ping') {
     msg.reply('Pong!');
   }
 });
