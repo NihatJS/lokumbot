@@ -15,7 +15,7 @@ client.on('message', msg => {
   if (msg.content.startsWith(">randomhex")) {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
       let randembed = new Discord.RichEmbed() 
-            .setTitle(`Random Hex Color`)
+            .setTitle(`#${color}`)
             .setColor(`#${color}`);
      msg.channel.send({embed: randembed});
   }
