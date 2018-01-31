@@ -10,7 +10,7 @@ client.on('message', msg => {
 
   
   if (msg.content.startsWith(">ping")) {
-    msg.channel.send("pong!");
+    msg.channel.send(message.author.userame + " pong!");
   }
   if (msg.content.startsWith(">randomhex")) {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
