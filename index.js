@@ -3,6 +3,8 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setGame(">help | V1.0", "https://twitch.tv/LokumBot");
+
 });
 
 client.on('message', msg => {
@@ -20,7 +22,7 @@ client.on('message', msg => {
      msg.channel.send({embed: randembed});
   }
   if (msg.content.startsWith(">say")) {
-    msg.channel.send(msg.author.username + ": " + args.join(" "));
+    msg.channel.send(msg.author.username + ": " + args.slice(1).join(" "));
   }
 });
 
