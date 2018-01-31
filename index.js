@@ -9,8 +9,8 @@ client.on('message', msg => {
   var args = msg.content.split(" ").slice(1);
 
   
-  if (message.content.startsWith(">ping")) {
-    message.channel.send("pong!");
+  if (msg.content.startsWith(">ping")) {
+    msg.channel.send("pong!");
   }
 });
 
