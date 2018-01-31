@@ -20,7 +20,7 @@ client.on('message', msg => {
      msg.channel.send({embed: randembed});
   }
   if (msg.content.startsWith(">say")) {
-    msg.channel.send(msg.author.username + ": " + args);
+    msg.channel.send(msg.author.username + ": " + args.join(" "));
   }
 });
 
