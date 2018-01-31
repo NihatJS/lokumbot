@@ -8,7 +8,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  let args = msg.content.split(" ").join(" ").slice(1);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+
 
   
   if (msg.content.startsWith(">ping")) {
@@ -22,7 +23,7 @@ client.on('message', msg => {
      msg.channel.send({embed: randembed});
   }
   if (msg.content.startsWith(">say")) {
-    msg.channel.send(msg.author.username + ": " + args.slice(1).join(" "));
+    msg.channel.send(msg.author.username + ": " + args);
   }
 });
 
