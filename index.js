@@ -19,6 +19,9 @@ client.on('message', msg => {
             .setColor(`#${color}`);
      msg.channel.send({embed: randembed});
   }
+  if (msg.content.startsWith(">say")) {
+    msg.channel.send(msg.author.username + ": " + args);
+  }
 });
 
 client.login(process.env.TOKEN);
