@@ -22,6 +22,17 @@ client.on('message', msg => {
             .setColor(`#${color}`);
      msg.channel.send({embed: randembed});
   }
+  if (msg.content.startsWith(">help")) {
+      let color = ((1 << 24) * Math.random() | 0).toString(16); 
+      let help = new Discord.RichEmbed() 
+            .setTitle(`Lokum Bot | Command Help`)
+            .addField('>help', 'Shows command help');
+            .addField('>ping', 'Hello World command');
+            .addField('>say', 'Command echos your text');
+            .setColor(`#${color}`);
+    
+     msg.channel.send({embed: help});
+  }
   if (msg.content.startsWith(">say")) {
    if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
      let args = msg.content.split(" ").splice(1);
