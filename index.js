@@ -8,7 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const args = msg.content.slice(length).trim().split(/ +/g);
 
 
   
