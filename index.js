@@ -33,7 +33,9 @@ client.on('message', msg => {
             .setTitle(`Lokum Bot | Command Help`)
             .addField(">help", "Shows command help")
             .addField(">ping", "Hello World command")
+            .addField(">randomhex", "Generates random hex code")
             .addField(">say [your text]", "Command echos your text")
+            .addField(">clearchat [number]", "Clears chat")
             .addField(">8ball [your question]", "Command answers your question")
             .setColor(`#${color}`);
     
