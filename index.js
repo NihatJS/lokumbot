@@ -1,5 +1,16 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const translate = require('translate');
+
+// ... include translate
+ 
+translate.engine = 'yandex';
+translation.key = process.env.TRANSLATE_KEY;
+ 
+// ... use translate()
+
+
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -42,6 +53,11 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith(">8ball")) {
     msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
+  }
+  if (msg.content.startsWith(">translate")) {
+    let args = msg.content.split(" ").splice(1);
+    const text = await translate(args[3], { from: 'args[1]', to: 'args[2]' });
+    msg.channel.send(msg.author.username + " " + text);
   }
 });
 
