@@ -41,6 +41,7 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith(">say")) {
    if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
+     msg.delete();
      let args = msg.content.split(" ").splice(1);
      let say = args.join(" ");
      msg.channel.send(msg.author.username + ": " + say);
@@ -51,12 +52,12 @@ client.on('message', msg => {
   if (msg.content.startsWith(">clearchat")) {
 	  let args = msg.content.split(" ").splice(1);
 
-	   if (!args) return msg.reply('Bomboş sohbet sil mi olur! Aynı lokum yapmak ve içine fındık fıstık koymamak gibi! Doldur şunu!')
-	    if (args<3) return msg.reply('3 Den aşağı mesaj silemezsin!')
-		    if (args>100) return msg.reply('100 Den yukarı mesaj silemezsin!')
+	   if (!args[0]) return msg.reply('Please fill all blanks!')
+	    if (args[0]<3) return msg.reply('You can not delete 3 down messages!')
+		    if (args[0]>100) return msg.reply('You can not delete messages from 100 up!')
 		     msg.channel.fetchMessages()
                      msg.channel.bulkDelete(args[0]);
-	     	     msg.channel.sendMessage("Chat cleared! Mesajlar silindi: "+args[0]);
+	     	     msg.channel.sendMessage("Chat cleared! Message cleaned: "+args[0]);
   }
 });
 
