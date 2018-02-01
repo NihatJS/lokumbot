@@ -51,7 +51,7 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith(">clearchat")) {
 	  let args = msg.content.split(" ").splice(1);
-
+	  if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
 	   if (!args[0]) return msg.reply('Please fill all blanks!')
 	    if (args[0]<3) return msg.reply('You can not delete 3 down messages!')
 		    if (args[0]>100) return msg.reply('You can not delete messages from 100 up!')
