@@ -26,9 +26,9 @@ client.on('message', msg => {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
       let help = new Discord.RichEmbed() 
             .setTitle(`Lokum Bot | Command Help`)
-            .addField('>help', 'Shows command help');
-            .addField('>ping', 'Hello World command');
-            .addField('>say', 'Command echos your text');
+            .addField('>help : Shows command help');
+            .addField('>ping : Hello World command');
+            .addField('>say : Command echos your text');
             .setColor(`#${color}`);
     
      msg.channel.send({embed: help});
