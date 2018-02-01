@@ -28,7 +28,8 @@ client.on('message', msg => {
             .setTitle(`Lokum Bot | Command Help`)
             .addField(">help", "Shows command help")
             .addField(">ping", "Hello World command")
-            .addField(">say", "Command echos your text")
+            .addField(">say [your text]", "Command echos your text")
+            .addField(">8ball [your question]", "Command answers your question")
             .setColor(`#${color}`);
     
      msg.channel.send({embed: help});
