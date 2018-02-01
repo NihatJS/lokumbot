@@ -1,14 +1,7 @@
 const Discord = require("discord.js");
-const translate = require('translate');
-
 const client = new Discord.Client();
 
-// ... include translate
- 
-translate.engine = 'yandex';
-translation.key = process.env.TRANSLATE_KEY;
- 
-// ... use translate()
+
 
 
 
@@ -55,11 +48,13 @@ client.on('message', msg => {
   if (msg.content.startsWith(">8ball")) {
     msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
   }
-  if (msg.content.startsWith(">translate")) {
-    const translate = require('translate');
-    let args = msg.content.split(" ").splice(1);
-    const text = await translate(args[3], { from: 'args[1]', to: 'args[2]' });
-    msg.channel.send(msg.author.username + " " + text);
+  if (msg.content.startsWith(">clearchat")) {
+	   if (!args) return msg.reply('Bomboş sohbet sil mi olur! Aynı lokum yapmak ve içine fındık fıstık koymamak gibi! Doldur şunu!')
+	    if (args<3) return msg.reply('3 Den aşağı mesaj silemezsin!')
+		    if (args>100) return msg.reply('100 Den yukarı mesaj silemezsin!')
+		     msg.channel.fetchMessages()
+       msg.channel.bulkDelete(args);
+	     	msg.channel.sendMessage("Chat cleared! Mesajlar silindi: "+args);
   }
 });
 
