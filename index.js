@@ -49,6 +49,8 @@ client.on('message', msg => {
     msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
   }
   if (msg.content.startsWith(">clearchat")) {
+	  let args = msg.content.split(" ").splice(1);
+
 	   if (!args) return msg.reply('Bomboş sohbet sil mi olur! Aynı lokum yapmak ve içine fındık fıstık koymamak gibi! Doldur şunu!')
 	    if (args<3) return msg.reply('3 Den aşağı mesaj silemezsin!')
 		    if (args>100) return msg.reply('100 Den yukarı mesaj silemezsin!')
