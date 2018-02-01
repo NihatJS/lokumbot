@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const translate = require('translate');
+
+const client = new Discord.Client();
 
 // ... include translate
  
@@ -55,6 +56,7 @@ client.on('message', msg => {
     msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
   }
   if (msg.content.startsWith(">translate")) {
+    const translate = require('translate');
     let args = msg.content.split(" ").splice(1);
     const text = await translate(args[3], { from: 'args[1]', to: 'args[2]' });
     msg.channel.send(msg.author.username + " " + text);
