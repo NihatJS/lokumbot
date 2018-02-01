@@ -39,6 +39,16 @@ client.on('message', msg => {
      let say = args.join(" ");
      msg.channel.send(msg.author.username + ": " + say);
   }
+  if (msg.content.startsWith(">8ball")) {
+    msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
+  }
 });
+
+function doMagic8BallVoodoo() {
+    var rand = ['Yes', 'No', 'Why are you even trying?', 'What do you think? NO', 'Maybe', 'Never', 'Yep'];
+
+    return rand[Math.floor(Math.random()*rand.length)];
+}
+
 
 client.login(process.env.TOKEN);
