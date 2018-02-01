@@ -55,8 +55,8 @@ client.on('message', msg => {
 	    if (args<3) return msg.reply('3 Den aşağı mesaj silemezsin!')
 		    if (args>100) return msg.reply('100 Den yukarı mesaj silemezsin!')
 		     msg.channel.fetchMessages()
-       msg.channel.bulkDelete(args);
-	     	msg.channel.sendMessage("Chat cleared! Mesajlar silindi: "+args);
+                     msg.channel.bulkDelete(args[0]);
+	     	     msg.channel.sendMessage("Chat cleared! Mesajlar silindi: "+args[]);
   }
 });
 
