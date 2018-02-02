@@ -22,7 +22,7 @@ client.on('message', msg => {
     msg.channel.send(msg.author.username + " pong!");
   }
   if (msg.content.startsWith(">meow")) {
-	   const { file } = await superagent
+	   const { body } = await superagent
 	   .get('http://random.cat/meow');
 	   const embed = new Discord.RichEmbed()
 	   .setColor(0x954D23)
