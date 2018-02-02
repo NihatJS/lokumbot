@@ -20,6 +20,15 @@ client.on('message', msg => {
   if (msg.content.startsWith(">ping")) {
     msg.channel.send(msg.author.username + " pong!");
   }
+  if (msg.content.startsWith(">meow")) {
+	   const { body } = await superagent
+	   .get('http://random.cat/meow');
+	   const embed = new Discord.RichEmbed()
+	   .setColor(0x954D23)
+	   .setTitle("Meow :cat:")
+	   .setImage(body.file)
+	   msg.channel.send({embed})
+  }
   if (msg.content.startsWith(">randomhex")) {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
       let randembed = new Discord.RichEmbed() 
