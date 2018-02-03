@@ -20,28 +20,28 @@ client.on('message', msg => {
   if (msg.content.startsWith(">ping")) {
     msg.channel.send(msg.author.username + " pong!");
   }
-  if (msg.content.startsWith(">randomhex")) {
+  if (msg.content.startsWith(">rastgelehex")) {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
       let randembed = new Discord.RichEmbed() 
             .setTitle(`#${color}`)
             .setColor(`#${color}`);
      msg.channel.send({embed: randembed});
   }
-  if (msg.content.startsWith(">help")) {
+  if (msg.content.startsWith(">yardım")) {
       let color = ((1 << 24) * Math.random() | 0).toString(16); 
       let help = new Discord.RichEmbed() 
-            .setTitle(`Lokum Bot | Command Help`)
-            .addField(">help", "Shows command help")
-            .addField(">ping", "Hello World command")
-            .addField(">randomhex", "Generates random hex code")
-            .addField(">say [your text]", "Command echos your text")
-            .addField(">clearchat [number]", "Clears chat")
-            .addField(">8ball [your question]", "Command answers your question")
+            .setTitle(`Lokum Bot | Komut yardımı`)
+            .addField(">yardım", "Komut yardımı")
+            .addField(">ping", "Hello World komutu")
+            .addField(">rastgelehex", "Rastgele hex kodu üretir")
+            .addField(">söylet [your text]", "Senin yazını tekrarlar")
+            .addField(">sohbetsil [number]", "Sohbeti siler")
+            .addField(">8ball [your question]", "Soruna cevap verir")
             .setColor(`#${color}`);
     
      msg.channel.send({embed: help});
   }
-  if (msg.content.startsWith(">say")) {
+  if (msg.content.startsWith(">söylet")) {
    if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
      msg.delete();
      let args = msg.content.split(" ").splice(1);
@@ -51,7 +51,7 @@ client.on('message', msg => {
   if (msg.content.startsWith(">8ball")) {
     msg.channel.send(msg.author.username + " " + doMagic8BallVoodoo());
   }
-  if (msg.content.startsWith(">clearchat")) {
+  if (msg.content.startsWith(">sohbetsil")) {
 	  let args = msg.content.split(" ").splice(1);
 	  if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
 	   if (!args[0]) return msg.reply('Please fill all blanks!')
