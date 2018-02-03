@@ -42,7 +42,7 @@ client.on('message', msg => {
      msg.channel.send({embed: help});
   }
   if (msg.content.startsWith(">söylet")) {
-   if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
+   if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("Yetkin yok! Gerekli yetki: `MANAGE_MESSAGES`");
      msg.delete();
      let args = msg.content.split(" ").splice(1);
      let say = args.join(" ");
@@ -53,18 +53,18 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith(">sohbetsil")) {
 	  let args = msg.content.split(" ").splice(1);
-	  if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You dont have permission! Needed permission: `MANAGE_MESSAGES`");
-	   if (!args[0]) return msg.reply('Please fill all blanks!')
-	    if (args[0]<3) return msg.reply('You can not delete 3 down messages!')
-		    if (args[0]>100) return msg.reply('You can not delete messages from 100 up!')
+          if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("Yetkin yok! Gerekli yetki: `MANAGE_MESSAGES`");
+	   if (!args[0]) return msg.reply('Bütün alanları lütfen doldur!')
+	    if (args[0]<3) return msg.reply('3 den aşağı mesaj silemezsin')
+		    if (args[0]>100) return msg.reply('100 den fazla mesaj silemezsin!')
 		     msg.channel.fetchMessages()
                      msg.channel.bulkDelete(args[0]);
-	     	     msg.channel.sendMessage("Chat cleared! Message cleaned: "+args[0]);
+	     	     msg.channel.sendMessage("Sohbet temizlendi. Mesajlar silindi: "+args[0]);
   }
 });
 
 function doMagic8BallVoodoo() {
-    var rand = ['Yes', 'No', 'Why are you even trying?', 'What do you think? NO', 'Maybe', 'Never', 'Yep'];
+    var rand = ['Evet', 'hayır', 'bilmiyorum', 'hatırlamıyorum', 'olabilir', 'olamaz', 'hmm'];
 
     return rand[Math.floor(Math.random()*rand.length)];
 }
